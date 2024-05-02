@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+          body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../todoimages.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.todo-content {
+    text-align: center;
+    padding: 50px;
+    color: white;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+#todoInput {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    width: 70%;
+}
+
+button {
+    padding: 8px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+        </style>
+    </head>
+    <body>
+        <div class="design">
+            <h1>The TODO APP</h1>
+
+            <form class="MyForm" action="{{url_for('create_new_task') }}" method="POST">
+                <div class="inputBox">
+                    <input type="text"
+                    name="task" placeholder="Add new task" required>
+                    <button type="submit"><b class="fa fa-plus-square" >CREATE</b></button>
+                </div> 
+            </form>
+        <ul>
+            {% for task in tasks %}
+            <li>
+                {{task}}
+            </li>
+            {% endfor %}
+        </ul>
+        
+        <script src="/templates/index.js" async defer></script>
+    </body>
+</html>
